@@ -1,20 +1,62 @@
+import cx_Oracle
+import classes
+
+connection = cx_Oracle.connect("OOPDB/Optiquest22@localhost:1521/xe")
+curs = connection.cursor()
+number = 6
+
+query = 'SELECT * FROM LETTERS_PACKAGES WHERE CURRENT_LOCATION = ' + str(number)
+print(query)
+curs.execute(query)
+letter_data = curs.fetchall()
+"print(letter_data)"
+letter_list = [classes.Letter(el[0], el[1], el[2], el[3], el[5], el[4]) for el in letter_data]
 
 
-from classes import Letter, Department, Client
-l1 = Letter(1,"h1", "v2", 12.3, 1)
-l2 = Letter(2,"h1", "v3", 12.3, 1)
-l3 = Letter(3,"h1", "v1", 12.3, 1)
-dept1 = Department("1", "1st-street", "1st-area", "Kyiv", "Kyiv obl", 1, "dept", 13.2, 12.4)
-dept2 = Department("1", "2nd-street", "3st-area", "Lviv", "Lviv obl", 2, "dept", 13.4, 10.2)
-dept3 = Department("1", "3st-street", "1st-area", "Kyiv", "Kyiv obl", 3, "storage", 13.2, 12.4)
-dept4 = Department("1", "4nd-street", "3st-area", "Lviv", "Lviv obl", 4, "storage", 13.4, 10.2)
-client1 = Client("h1", "name 1", "000-00-00", "2", "3-street", "3-area", "Kyiv","Kyiv obl", "sender")
-client2 = Client("v1", "name 2", "000-00-00", "2", "3-street", "3-area", "Lviv", "Lviv obl" ,"getter")
-client3 = Client("v2", "name 3", "000-00-00","2", "3-street", "3-area", "Lviv","Lviv obl" ,"getter")
-client4 = Client("v3", "name 4", "000-00-00","2", "3-street", "3-area", "Kyiv","Kyiv obl" ,"getter")
+query = 'SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_NUMBER = ' + str(number)
+print(query)
+curs.execute(query)
+dept_data = curs.fetchall()
+"print(dept_data)"
+my_department = classes.Department(dept_data[0][4], dept_data[0][5], dept_data[0][6], dept_data[0][7],dept_data[0][0],dept_data[0][1],dept_data[0][2],dept_data[0][3])
 
-letterslist=[l1, l2, l3]
-clientlist=[client1, client2, client3, client4]
-deptlist = [dept1, dept2, dept3, dept4]
-l1.next_move(deptlist)
-print(client1.type)
+for el in letter_list:
+    query = 'SELECT CLIENT_ADRESS, CLIENT_AREA, CLIENT_CITY, CLIENT_REGION FROM CLIENTS WHERE CLIENT_ID = '+str(el.getter_id)
+    curs.execute(query)
+    client_data = curs.fetchall()
+    "print(client_data[0][2])"
+    print(el.number)
+
+    if my_department.city == client_data[0][2]:
+        if my_department.type == "post office":
+            print(client_data[0][0]+ ' '+client_data[0][1]+ ' '+client_data[0][2])
+        else:
+            print("deliver to post office")
+            print(client_data[0][0] + ' ' + client_data[0][1] + ' ' + client_data[0][2])
+            query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'post office' AND DEPT_CITY = '" + client_data[0][2] + "' AND DEPT_AREA = '" + client_data[0][1]+"'"
+            curs.execute(query)
+            next_dept_list = curs.fetchall()
+            if(next_dept_list):
+                print("deliver to post office №" + next_dept_list[0][0])
+            else:
+                query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'post office' AND DEPT_CITY = '" + \
+                        client_data[0][2] + "' AND FREE_VOLUME = (SELECT MAX(FREE_VOLUME) FROM DEPARTMENTS)"
+                curs.execute(query)
+                next_dept_list2 = curs.fetchall()
+                print("deliver to post office №" + str(next_dept_list2[0][0]))
+    else:
+        if my_department.type == "storrage" and my_department.region == client_data[0][3]:
+            query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'post office' AND DEPT_CITY = '"+\
+                    my_department.city +"' AND FREE_VOLUME = (SELECT MAX(FREE_VOLUME) FROM DEPARTMENTS)"
+            curs.execute(query)
+            next_dept_list2 = curs.fetchall()
+            print("deliver to post office №" + str(next_dept_list2[0][0]))
+        else:
+            query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'storrage' AND DEPT_REGION = '" + \
+            client_data[0][3] + "'"
+            curs.execute(query)
+            next_dept_list2 = curs.fetchall()
+            print("deliver to storrage  with number " + next_dept_list2[0][0])
+curs.close()
+connection.close()
+
