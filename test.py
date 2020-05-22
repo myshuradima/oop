@@ -1,62 +1,33 @@
-import cx_Oracle
-import classes
-
-connection = cx_Oracle.connect("OOPDB/Optiquest22@localhost:1521/xe")
-curs = connection.cursor()
-number = 6
-
-query = 'SELECT * FROM LETTERS_PACKAGES WHERE CURRENT_LOCATION = ' + str(number)
-print(query)
-curs.execute(query)
-letter_data = curs.fetchall()
-"print(letter_data)"
-letter_list = [classes.Letter(el[0], el[1], el[2], el[3], el[5], el[4]) for el in letter_data]
+import lab2
 
 
-query = 'SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_NUMBER = ' + str(number)
-print(query)
-curs.execute(query)
-dept_data = curs.fetchall()
-"print(dept_data)"
-my_department = classes.Department(dept_data[0][4], dept_data[0][5], dept_data[0][6], dept_data[0][7],dept_data[0][0],dept_data[0][1],dept_data[0][2],dept_data[0][3])
+newAdmin = lab2.Admin("AdminBob", "123-45-67", "bobs_login", "123456", 12)
+newEmployee1 = newAdmin.create_employee("Adam", "123-45-67", "adams_login", "123456", 2)
+newEmployee2 = newAdmin.create_employee("Bob", "123-45-67", "bobs_login", "123456", 12)
 
-for el in letter_list:
-    query = 'SELECT CLIENT_ADRESS, CLIENT_AREA, CLIENT_CITY, CLIENT_REGION FROM CLIENTS WHERE CLIENT_ID = '+str(el.getter_id)
-    curs.execute(query)
-    client_data = curs.fetchall()
-    "print(client_data[0][2])"
-    print(el.number)
+print(newEmployee2.get_name())
 
-    if my_department.city == client_data[0][2]:
-        if my_department.type == "post office":
-            print(client_data[0][0]+ ' '+client_data[0][1]+ ' '+client_data[0][2])
-        else:
-            print("deliver to post office")
-            print(client_data[0][0] + ' ' + client_data[0][1] + ' ' + client_data[0][2])
-            query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'post office' AND DEPT_CITY = '" + client_data[0][2] + "' AND DEPT_AREA = '" + client_data[0][1]+"'"
-            curs.execute(query)
-            next_dept_list = curs.fetchall()
-            if(next_dept_list):
-                print("deliver to post office №" + next_dept_list[0][0])
-            else:
-                query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'post office' AND DEPT_CITY = '" + \
-                        client_data[0][2] + "' AND FREE_VOLUME = (SELECT MAX(FREE_VOLUME) FROM DEPARTMENTS)"
-                curs.execute(query)
-                next_dept_list2 = curs.fetchall()
-                print("deliver to post office №" + str(next_dept_list2[0][0]))
-    else:
-        if my_department.type == "storrage" and my_department.region == client_data[0][3]:
-            query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'post office' AND DEPT_CITY = '"+\
-                    my_department.city +"' AND FREE_VOLUME = (SELECT MAX(FREE_VOLUME) FROM DEPARTMENTS)"
-            curs.execute(query)
-            next_dept_list2 = curs.fetchall()
-            print("deliver to post office №" + str(next_dept_list2[0][0]))
-        else:
-            query = "SELECT DEPARTMENT_NUMBER, DEPT_ADRESS FROM DEPARTMENTS WHERE DEPARTMENT_TYPE = 'storrage' AND DEPT_REGION = '" + \
-            client_data[0][3] + "'"
-            curs.execute(query)
-            next_dept_list2 = curs.fetchall()
-            print("deliver to storrage  with number " + next_dept_list2[0][0])
-curs.close()
-connection.close()
-
+client1, client2, package =newEmployee1.create_order("Getter Name", "Sender Name", "Getter Adress", "Sender Adress",
+                                                    "Getter Area", "Sender Area","Getter City", "Sender City", "Getter Region",
+                                                    "Sender Region", "Getter Phone", "Sender Phone", 13, 15)
+client1, client2, package1 =newEmployee2.create_order("Getter Name", "Sender Name", "Getter Adress", "Sender Adress",
+                                                    "Getter Area", "Sender Area","Getter City1", "Sender City", "Getter Region",
+                                                    "Sender Region", "Getter Phone", "Sender Phone", 33, 25)
+client1, client2, package2 =newEmployee2.create_order("Getter Name", "Sender Name", "Getter Adress", "Sender Adress",
+                                                    "Getter Area", "Sender Area","Getter City2", "Sender City", "Getter Region",
+                                                    "Sender Region", "Getter Phone", "Sender Phone", 18, 25)
+client1, client2, package3 =newEmployee1.create_order("Getter Name", "Sender Name", "Getter Adress", "Sender Adress",
+                                                    "Getter Area", "Sender Area","Getter City3", "Sender City", "Getter Region",
+                                                    "Sender Region", "Getter Phone", "Sender Phone", 20, 16)
+client1, client2, package4 =newEmployee1.create_order("Getter Name", "Sender Name", "Getter Adress", "Sender Adress",
+                                                    "Getter Area", "Sender Area","Getter City4", "Sender City", "Getter Region",
+                                                    "Sender Region", "Getter Phone", "Sender Phone", 16, 15)
+print(client1.get_name())
+print(client2.get_name())
+print("_________________________________")
+package_list=[package, package1, package2, package3, package4]
+for el in package_list:
+    print(el.get_current_place())
+    print(newEmployee2.get_name())
+    el.check(newEmployee2)
+    print(el.get_current_place())
