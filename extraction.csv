@@ -1,3 +1,34 @@
-0,not delivered,15,20,"[adam,112-85-96,third street,Podol,Kyiv,Kyiv_obl]","[sam,221-85-96,third street,Solomyansky,Kyiv,Kyiv_obl]",1
-0,not delivered,15,20,"[adam,112-85-96,third street,Podol,Kyiv,Kyiv_obl]","[sam,221-85-96,third street,Solomyansky,Kyiv,Kyiv_obl]",1
-0,not delivered,15,20,"[adam,112-85-96,third street,Podol,Kyiv,Kyiv_obl]","[sam,221-85-96,third street,Solomyansky,Kyiv,Kyiv_obl]",1,login
+3,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000014BE8AE6C88>,login
+3,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000014BE8AE6C88>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000016835AE6C50>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x00000149755700F0>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000020ADE4800B8>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x00000147D0E76978>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000029CFD3F00B8>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x00000267984988D0>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000029E50D37940>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000001F8509CA860>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000001793D7188D0>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000001E2BB68A898>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000022B96817908>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000002873A096978>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000002873A096978>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000001BD4E0F7908>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000001BD4E0F7908>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x00000209F7490080>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000002CE7D750080>,login
+2,delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x000001D429C000F0>,login
+2,not delivered,15.0,20.0,"[new_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[new_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000024327027908>,login
+1,not delivered,12.5,19.54,"[client1,111-22-34,second_street,Podol,Kyiv,Kyiv obl]","[clint1,111-22-33,first street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x00000214ABCDBCF8>,employee_1
+3,not delivered,15.0,20.0,"[old_adam,112-85-96,fourth street,Podol,Kyiv,Kyiv obl]","[old_sam,221-85-96,fifth street,Solomyansky,Kyiv,Kyiv obl]",<body.Department object at 0x0000024384AB4390>,login
+0,not delivered,36,20,"[constantine,252-85-74,55 street,District3,Lviv,Lviv obl]","[jhon,123-36-54,24 street,District9,Chernigiv,Chernigiv obl]",1,login
+0,not delivered,36,20,"[constantine,252-85-74,55 street,District3,Lviv,Lviv obl]","[jhon,123-36-54,24 street,District9,Chernigiv,Chernigiv obl]",1,login
+0,not delivered,11,12,"[ddas,dsasd,dsadasd,Podol,Kyiv,Kyiv obl]","[dad,asds,sdasd,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,11,12,"[ddas,dsasd,dsadasd,Podol,Kyiv,Kyiv obl]","[dad,asds,sdasd,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,10,12,"[dededed,deded,edeffde,Podol,Kyiv,Kyiv obl]","[eded,dede,edede,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,10,12,"[dededed,deded,edeffde,Podol,Kyiv,Kyiv obl]","[eded,dede,edede,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,10,12,"[dededed,deded,edeffde,Podol,Kyiv,Kyiv obl]","[eded,dede,edede,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,10,12,"[dededed,deded,edeffde,Podol,Kyiv,Kyiv obl]","[eded,dede,edede,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,10,12,"[dededed,deded,edeffde,Podol,Kyiv,Kyiv obl]","[eded,dede,edede,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,10,12,"[dededed,deded,edeffde,Podol,Kyiv,Kyiv obl]","[eded,dede,edede,Podol,Kyiv,Kyiv obl]",1,login
+0,not delivered,10,12,"[dededed,deded,edeffde,Podol,Kyiv,Kyiv obl]","[eded,dede,edede,Podol,Kyiv,Kyiv obl]",1,login
